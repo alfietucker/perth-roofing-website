@@ -70,14 +70,15 @@ function Home() {
             </p>
 
             <div className="mt-7 flex flex-col items-start gap-3">
-              <div className="flex flex-nowrap gap-3 w-full sm:w-auto">
+              <div className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
                 <Link to="/contact" className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md bg-primary px-6 py-3.5 text-base font-semibold text-primary-foreground shadow-cta hover:bg-primary-hover transition">
                   Get Free Quote <ArrowRight className="w-4 h-4" />
                 </Link>
                 <a href={SITE.phoneHref} className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md border border-white/70 bg-transparent text-white px-6 py-3.5 text-base font-semibold hover:bg-white hover:text-charcoal transition">
-                  <Phone className="w-4 h-4" /> {SITE.phone}
+                  <Phone className="w-4 h-4" /> Call {SITE.phone}
                 </a>
               </div>
+
               <p className="text-xs font-medium text-white/70">
                 Same-day response · No obligation
               </p>
