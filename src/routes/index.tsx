@@ -268,6 +268,11 @@ function Home() {
         <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
           <SectionHeading eyebrow="Get Started" title="Request your free quote today" subtitle="Tell us a little about your roof — a Perth specialist will be in touch within 2 business hours." center />
           <div className="mt-10"><QuoteForm /></div>
+          <div className="mt-6 flex justify-center">
+            <Link to="/contact" className="inline-flex items-center gap-2 rounded-md bg-primary px-6 py-3.5 text-base font-semibold text-primary-foreground shadow-cta hover:bg-primary-hover transition">
+              Go to contact page <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
           <ul className="mt-8 flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm text-muted-foreground">
             {["Free on-site inspection", "Fixed-price written quote", "No obligation", "Workmanship warranty"].map((x) => (
               <li key={x} className="flex items-center gap-1.5"><CheckCircle2 className="w-4 h-4 text-primary" />{x}</li>
