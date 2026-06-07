@@ -82,11 +82,14 @@ function Home() {
       {/* Services */}
       <section className="py-20 md:py-28">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <SectionHeading
-            eyebrow="What We Do"
-            title="Roofing services built for Perth conditions"
-            subtitle="From a single cracked tile to a complete commercial re-roof — one local team, one written warranty."
-          />
+          <div className="flex items-end justify-between flex-wrap gap-4">
+            <SectionHeading
+              eyebrow="What We Do"
+              title="Roofing services built for Perth conditions"
+              subtitle="From a single cracked tile to a complete commercial re-roof — one local team, one written warranty."
+            />
+            <Link to="/services" className="inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:gap-2.5 transition-all">View all services <ArrowRight className="w-4 h-4" /></Link>
+          </div>
           <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {SERVICES.map((s, i) => {
               const img = [tileImg, metalImg, commercialImg][i % 3];
@@ -148,6 +151,9 @@ function Home() {
             subtitle="Real reviews from real customers — verified on Google."
             center
           />
+          <div className="mt-4 flex justify-center">
+            <Link to="/reviews" className="inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:gap-2.5 transition-all">Read all reviews <ArrowRight className="w-4 h-4" /></Link>
+          </div>
 
           {/* Google rating badge */}
           <div className="mt-8 flex justify-center">
@@ -262,6 +268,11 @@ function Home() {
         <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
           <SectionHeading eyebrow="Get Started" title="Request your free quote today" subtitle="Tell us a little about your roof — a Perth specialist will be in touch within 2 business hours." center />
           <div className="mt-10"><QuoteForm /></div>
+          <div className="mt-6 flex justify-center">
+            <Link to="/contact" className="inline-flex items-center gap-2 rounded-md bg-primary px-6 py-3.5 text-base font-semibold text-primary-foreground shadow-cta hover:bg-primary-hover transition">
+              Go to contact page <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
           <ul className="mt-8 flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm text-muted-foreground">
             {["Free on-site inspection", "Fixed-price written quote", "No obligation", "Workmanship warranty"].map((x) => (
               <li key={x} className="flex items-center gap-1.5"><CheckCircle2 className="w-4 h-4 text-primary" />{x}</li>
