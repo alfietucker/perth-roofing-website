@@ -348,8 +348,39 @@ function Home() {
         </div>
       </section>
 
+      {/* FAQ */}
+      <section className="py-20 md:py-28 bg-cream">
+        <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+          <SectionHeading
+            eyebrow="FAQ"
+            title="Roofing questions, answered"
+            subtitle="The questions we hear most often from Perth homeowners."
+            center
+          />
+          <div className="mt-10 space-y-3">
+            {[
+              { q: "How much does a roof repair cost in Perth?", a: "Small repairs typically start from $350. After a free on-site inspection we provide a fixed written quote so you know exactly what you'll pay — no surprises." },
+              { q: "How quickly can you get to me?", a: "Most repairs are inspected within 48 hours. For active leaks or storm damage we offer same-day emergency callouts across the Perth metro." },
+              { q: "Do you offer a workmanship warranty?", a: "Yes. Every job — repair, restoration or replacement — is backed by a written workmanship warranty in addition to manufacturer product warranties." },
+              { q: "Are you licensed and insured?", a: "Fully licensed roofing contractors with $20M public liability cover. We're happy to provide certificates of currency on request." },
+              { q: "Do you handle insurance claims?", a: "Absolutely. We prepare the photos, reports and quotes that insurers need, and can liaise directly with your insurer in most cases." },
+              { q: "Which suburbs do you service?", a: "All Perth metro — from Joondalup and Hillarys in the north, through to Fremantle, Cottesloe and the southern suburbs." },
+            ].map((f) => (
+              <details key={f.q} className="group rounded-xl bg-white border border-border p-5 shadow-card">
+                <summary className="flex items-center justify-between gap-4 cursor-pointer list-none font-semibold text-charcoal">
+                  <span>{f.q}</span>
+                  <span className="flex-shrink-0 w-7 h-7 rounded-full bg-primary/10 text-primary flex items-center justify-center text-lg leading-none group-open:rotate-45 transition-transform">+</span>
+                </summary>
+                <p className="mt-3 text-sm text-muted-foreground leading-relaxed">{f.a}</p>
+              </details>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Service areas */}
       <section className="py-20">
+
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <SectionHeading eyebrow="Service Areas" title="Roofing across the Perth metro" subtitle="Click your suburb for local examples and pricing guidance." />
           <div className="mt-10 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3">
