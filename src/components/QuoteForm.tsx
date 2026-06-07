@@ -103,8 +103,9 @@ export function QuoteForm({ compact, title = "Get Your Free Quote" }: Props) {
         </div>
       </div>
 
-      <button type="submit" className="mt-5 w-full rounded-md bg-primary px-4 py-3.5 text-base font-semibold text-primary-foreground shadow-cta hover:bg-primary-hover transition-colors">
-        Get My Free Quote
+      {submitError && <p className="mt-3 text-sm text-destructive text-center">{submitError}</p>}
+      <button type="submit" disabled={submitting} className="mt-5 w-full rounded-md bg-primary px-4 py-3.5 text-base font-semibold text-primary-foreground shadow-cta hover:bg-primary-hover transition-colors disabled:opacity-60 disabled:cursor-not-allowed">
+        {submitting ? "Sending…" : "Get My Free Quote"}
       </button>
       <p className="mt-3 text-xs text-muted-foreground text-center">★★★★★ Rated by 280+ Perth homeowners</p>
     </form>
