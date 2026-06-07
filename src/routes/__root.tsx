@@ -84,6 +84,12 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:site_name", content: "Apex Roofing Perth" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { property: "og:title", content: "Apex Roofing Perth | Perth's Trusted Roofing Specialists" },
+      { name: "twitter:title", content: "Apex Roofing Perth | Perth's Trusted Roofing Specialists" },
+      { property: "og:description", content: "Perth's trusted roofing contractors. Roof repairs, restoration, re-roofing and replacement. Licensed, insured & locally owned. Free quotes." },
+      { name: "twitter:description", content: "Perth's trusted roofing contractors. Roof repairs, restoration, re-roofing and replacement. Licensed, insured & locally owned. Free quotes." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/938f4773-b87d-4724-8547-78aee6eb5c04/id-preview-6aa314ca--cbd8037f-94de-4a6b-b36d-e3fa64220980.lovable.app-1780820353566.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/938f4773-b87d-4724-8547-78aee6eb5c04/id-preview-6aa314ca--cbd8037f-94de-4a6b-b36d-e3fa64220980.lovable.app-1780820353566.png" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
