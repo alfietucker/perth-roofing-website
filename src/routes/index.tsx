@@ -112,45 +112,6 @@ function Home() {
         </div>
       </section>
 
-      {/* Why us */}
-      <section className="py-20 bg-charcoal text-white">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-12 items-center">
-          <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-primary mb-3">Why Choose Apex</p>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white">Local. Licensed. Built on referrals.</h2>
-            <p className="mt-4 text-white/75 leading-relaxed">
-              We're not a franchise and we're not a call centre. Every job is run by an experienced Perth roofer who owns the outcome from first quote to final clean-up.
-            </p>
-            <div className="mt-8 grid sm:grid-cols-2 gap-5">
-              {[
-                { i: ShieldCheck, t: "Licensed & Insured", d: "$20M public liability and a written workmanship warranty on every job." },
-                { i: Award, t: "Premium Materials", d: "Genuine Colorbond, Bristile and Australian-made membrane systems." },
-                { i: Clock, t: "On Time, Every Time", d: "We turn up when we say we will. If we don't, we tell you why." },
-                { i: Wrench, t: "Real Roofers", d: "Tradespeople with decades on Perth roofs — no fly-by-night labour." },
-              ].map((b) => (
-                <div key={b.t} className="flex gap-3">
-                  <div className="shrink-0 w-10 h-10 rounded-lg bg-primary/15 text-primary grid place-items-center"><b.i className="w-5 h-5" /></div>
-                  <div>
-                    <h3 className="font-semibold text-white">{b.t}</h3>
-                    <p className="text-sm text-white/70 mt-1 leading-relaxed">{b.d}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-          <div className="relative">
-            <div className="aspect-[4/5] rounded-2xl overflow-hidden">
-              <img src={metalImg} alt="Premium Colorbond roof installation" loading="lazy" className="w-full h-full object-cover" />
-            </div>
-            <div className="absolute -bottom-6 -left-6 hidden md:block bg-primary text-primary-foreground rounded-2xl p-6 shadow-cta max-w-[240px]">
-              <p className="text-3xl font-bold">10 yr</p>
-              <p className="text-sm mt-1 leading-snug">Workmanship warranty on every restoration & replacement.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Projects */}
       <section className="py-20 md:py-28">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex items-end justify-between flex-wrap gap-4">
