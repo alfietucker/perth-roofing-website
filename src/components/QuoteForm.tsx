@@ -16,8 +16,10 @@ type Props = { compact?: boolean; title?: string };
 export function QuoteForm({ compact, title = "Get Your Free Quote" }: Props) {
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
 
-  function onSubmit(e: React.FormEvent<HTMLFormElement>) {
+  async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const form = new FormData(e.currentTarget);
     const data = Object.fromEntries(form.entries());
@@ -31,7 +33,34 @@ export function QuoteForm({ compact, title = "Get Your Free Quote" }: Props) {
       return;
     }
     setErrors({});
-    setSubmitted(true);
+    setSubmitting(true);
+    setSubmitError(null);
+    try {
+      const payload = {
+        access_key: "1c4f0000-154c-4c73-a01b-b56502970f55",
+        subject: `New Quote Request — ${result.data.service} (${result.data.suburb})`,
+        from_name: "Apex Roofing Perth Website",
+        replyto: result.data.email,
+        name: result.data.name,
+        phone: result.data.phone,
+        email: result.data.email,
+        suburb: result.data.suburb,
+        service: result.data.service,
+        message: result.data.message || "(no message)",
+      };
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify(payload),
+      });
+      const json = await res.json();
+      if (!res.ok || !json.success) throw new Error(json.message || "Submission failed");
+      setSubmitted(true);
+    } catch (err) {
+      setSubmitError(err instanceof Error ? err.message : "Something went wrong. Please call us instead.");
+    } finally {
+      setSubmitting(false);
+    }
   }
 
   if (submitted) {
@@ -74,8 +103,9 @@ export function QuoteForm({ compact, title = "Get Your Free Quote" }: Props) {
         </div>
       </div>
 
-      <button type="submit" className="mt-5 w-full rounded-md bg-primary px-4 py-3.5 text-base font-semibold text-primary-foreground shadow-cta hover:bg-primary-hover transition-colors">
-        Get My Free Quote
+      {submitError && <p className="mt-3 text-sm text-destructive text-center">{submitError}</p>}
+      <button type="submit" disabled={submitting} className="mt-5 w-full rounded-md bg-primary px-4 py-3.5 text-base font-semibold text-primary-foreground shadow-cta hover:bg-primary-hover transition-colors disabled:opacity-60 disabled:cursor-not-allowed">
+        {submitting ? "Sending…" : "Get My Free Quote"}
       </button>
       <p className="mt-3 text-xs text-muted-foreground text-center">★★★★★ Rated by 280+ Perth homeowners</p>
     </form>
