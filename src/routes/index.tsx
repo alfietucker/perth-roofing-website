@@ -8,6 +8,7 @@ import { QuoteForm } from "@/components/QuoteForm";
 import { TrustBar } from "@/components/TrustBar";
 import { SectionHeading } from "@/components/SectionHeading";
 import { SITE, SERVICES, SUBURBS, REVIEWS, PROJECTS } from "@/lib/site";
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 
 export const Route = createFileRoute("/")({
   head: () => ({
