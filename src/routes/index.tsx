@@ -82,11 +82,14 @@ function Home() {
       {/* Services */}
       <section className="py-20 md:py-28">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <SectionHeading
-            eyebrow="What We Do"
-            title="Roofing services built for Perth conditions"
-            subtitle="From a single cracked tile to a complete commercial re-roof — one local team, one written warranty."
-          />
+          <div className="flex items-end justify-between flex-wrap gap-4">
+            <SectionHeading
+              eyebrow="What We Do"
+              title="Roofing services built for Perth conditions"
+              subtitle="From a single cracked tile to a complete commercial re-roof — one local team, one written warranty."
+            />
+            <Link to="/services" className="inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:gap-2.5 transition-all">View all services <ArrowRight className="w-4 h-4" /></Link>
+          </div>
           <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {SERVICES.map((s, i) => {
               const img = [tileImg, metalImg, commercialImg][i % 3];
