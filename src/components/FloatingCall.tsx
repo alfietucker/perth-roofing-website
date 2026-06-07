@@ -6,9 +6,9 @@ export function FloatingCall() {
     <a
       href={SITE.phoneHref}
       aria-label="Call Apex Roofing now"
-      className="lg:hidden fixed bottom-5 right-5 z-40 inline-flex items-center gap-2 rounded-full bg-primary text-primary-foreground px-5 py-3.5 shadow-cta font-semibold"
+      className="lg:hidden fixed bottom-4 right-4 z-40 inline-flex items-center gap-1.5 rounded-full bg-primary text-primary-foreground px-4 py-2.5 shadow-cta font-semibold text-sm"
     >
-      <Phone className="w-5 h-5" /> Call Now
+      <Phone className="w-4 h-4" /> Call Now
     </a>
   );
 }
