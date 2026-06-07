@@ -178,39 +178,88 @@ function Home() {
       </section>
 
       {/* Reviews */}
-      <section className="py-20 bg-cream">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <section className="relative py-24 bg-gradient-to-b from-cream via-cream to-white overflow-hidden">
+        <div className="absolute inset-0 -z-10 opacity-[0.04]" style={{ backgroundImage: "radial-gradient(circle at 1px 1px, hsl(var(--charcoal)) 1px, transparent 0)", backgroundSize: "24px 24px" }} />
+          <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <SectionHeading
             eyebrow="What Perth Says"
-            title={`${SITE.rating}/5 from ${SITE.reviewCount}+ homeowners`}
-            subtitle="The reviews you'd hope to read before letting someone on your roof."
+            title="Loved by homeowners across Perth"
+            subtitle="Real reviews from real customers — verified on Google."
             center
           />
-          <Carousel opts={{ align: "start", loop: true }} className="mt-10">
-            <div className="mb-6 flex items-center justify-center gap-3">
-              <CarouselPrevious className="static translate-y-0 h-11 w-11 bg-primary text-primary-foreground border-primary hover:bg-primary-hover hover:text-primary-foreground" />
-              <span className="text-sm font-medium text-muted-foreground">Swipe or tap to read more</span>
-              <CarouselNext className="static translate-y-0 h-11 w-11 bg-primary text-primary-foreground border-primary hover:bg-primary-hover hover:text-primary-foreground" />
-            </div>
+
+          {/* Google rating badge */}
+          <div className="mt-8 flex justify-center">
+            <a
+              href="https://www.google.com/search?q=apex+roofing+perth+reviews"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group inline-flex items-center gap-4 rounded-full bg-white border border-border pl-3 pr-5 py-2.5 shadow-card hover:shadow-cta transition-all hover:-translate-y-0.5"
+            >
+              <span className="flex items-center justify-center w-10 h-10 rounded-full bg-white border border-border">
+                {/* Google G */}
+                <svg viewBox="0 0 48 48" className="w-5 h-5" aria-hidden="true">
+                  <path fill="#EA4335" d="M24 9.5c3.5 0 6.6 1.2 9.1 3.6l6.8-6.8C35.7 2.4 30.2 0 24 0 14.6 0 6.5 5.4 2.6 13.3l7.9 6.1C12.4 13.1 17.7 9.5 24 9.5z"/>
+                  <path fill="#4285F4" d="M46.5 24.5c0-1.6-.1-3.2-.4-4.7H24v9h12.7c-.6 3-2.3 5.5-4.9 7.2l7.6 5.9c4.4-4.1 7.1-10.1 7.1-17.4z"/>
+                  <path fill="#FBBC05" d="M10.5 28.6c-.5-1.4-.8-2.9-.8-4.6s.3-3.2.8-4.6l-7.9-6.1C1 16.7 0 20.2 0 24s1 7.3 2.6 10.7l7.9-6.1z"/>
+                  <path fill="#34A853" d="M24 48c6.5 0 11.9-2.1 15.9-5.8l-7.6-5.9c-2.1 1.4-4.8 2.3-8.3 2.3-6.3 0-11.6-3.6-13.5-9.4l-7.9 6.1C6.5 42.6 14.6 48 24 48z"/>
+                </svg>
+              </span>
+              <div className="text-left">
+                <div className="flex items-center gap-1.5">
+                  <span className="text-lg font-bold text-charcoal leading-none">{SITE.rating}</span>
+                  <div className="flex gap-0.5 text-[#FBBC05]">
+                    {Array.from({ length: 5 }).map((_, i) => <Star key={i} className="w-3.5 h-3.5 fill-current" />)}
+                  </div>
+                </div>
+                <p className="text-[11px] font-medium text-muted-foreground mt-0.5 leading-none">Based on {SITE.reviewCount}+ Google reviews</p>
+              </div>
+            </a>
+          </div>
+
+          <Carousel opts={{ align: "start", loop: true }} className="mt-12">
             <CarouselContent className="-ml-5">
               {REVIEWS.map((r) => (
                 <CarouselItem key={r.name} className="pl-5 basis-full md:basis-1/2 lg:basis-1/3">
-                  <figure className="h-full rounded-2xl bg-white border border-border p-6 shadow-card">
-                    <div className="flex gap-0.5 text-primary mb-3">
-                      {Array.from({ length: r.rating }).map((_, i) => <Star key={i} className="w-4 h-4 fill-current" />)}
+                  <figure className="relative h-full rounded-2xl bg-white border border-border p-7 shadow-card hover:shadow-cta hover:-translate-y-1 transition-all duration-300">
+                    {/* Decorative quote mark */}
+                    <span className="absolute top-4 right-5 text-7xl leading-none font-serif text-primary/10 select-none" aria-hidden="true">"</span>
+
+                    {/* Google badge */}
+                    <div className="flex items-center justify-between mb-4">
+                      <div className="flex gap-0.5 text-[#FBBC05]">
+                        {Array.from({ length: r.rating }).map((_, i) => <Star key={i} className="w-4 h-4 fill-current" />)}
+                      </div>
+                      <svg viewBox="0 0 48 48" className="w-4 h-4 opacity-80" aria-label="Google review">
+                        <path fill="#EA4335" d="M24 9.5c3.5 0 6.6 1.2 9.1 3.6l6.8-6.8C35.7 2.4 30.2 0 24 0 14.6 0 6.5 5.4 2.6 13.3l7.9 6.1C12.4 13.1 17.7 9.5 24 9.5z"/>
+                        <path fill="#4285F4" d="M46.5 24.5c0-1.6-.1-3.2-.4-4.7H24v9h12.7c-.6 3-2.3 5.5-4.9 7.2l7.6 5.9c4.4-4.1 7.1-10.1 7.1-17.4z"/>
+                        <path fill="#FBBC05" d="M10.5 28.6c-.5-1.4-.8-2.9-.8-4.6s.3-3.2.8-4.6l-7.9-6.1C1 16.7 0 20.2 0 24s1 7.3 2.6 10.7l7.9-6.1z"/>
+                        <path fill="#34A853" d="M24 48c6.5 0 11.9-2.1 15.9-5.8l-7.6-5.9c-2.1 1.4-4.8 2.3-8.3 2.3-6.3 0-11.6-3.6-13.5-9.4l-7.9 6.1C6.5 42.6 14.6 48 24 48z"/>
+                      </svg>
                     </div>
-                    <blockquote className="text-charcoal-soft leading-relaxed">"{r.text}"</blockquote>
-                    <figcaption className="mt-4 text-sm">
-                      <p className="font-semibold text-charcoal">{r.name} <span className="text-muted-foreground font-normal">· {r.suburb}</span></p>
-                      <p className="text-muted-foreground">{r.service}</p>
+
+                    <blockquote className="relative text-charcoal-soft leading-relaxed">"{r.text}"</blockquote>
+
+                    <figcaption className="mt-6 pt-5 border-t border-border flex items-center gap-3">
+                      <div className="flex-shrink-0 w-11 h-11 rounded-full bg-gradient-to-br from-primary to-primary-hover text-primary-foreground flex items-center justify-center font-bold text-sm">
+                        {r.name.split(" ").map((n) => n[0]).slice(0, 2).join("")}
+                      </div>
+                      <div className="text-sm">
+                        <p className="font-semibold text-charcoal leading-tight">{r.name}</p>
+                        <p className="text-muted-foreground text-xs mt-0.5">{r.suburb} · {r.service}</p>
+                      </div>
                     </figcaption>
                   </figure>
                 </CarouselItem>
               ))}
             </CarouselContent>
+
+            <div className="mt-8 flex items-center justify-center gap-4">
+              <CarouselPrevious className="static translate-y-0 h-12 w-12 bg-white text-charcoal border-border hover:bg-primary hover:text-primary-foreground hover:border-primary shadow-card transition-all" />
+              <span className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Swipe or tap</span>
+              <CarouselNext className="static translate-y-0 h-12 w-12 bg-white text-charcoal border-border hover:bg-primary hover:text-primary-foreground hover:border-primary shadow-card transition-all" />
+            </div>
           </Carousel>
-
-
         </div>
       </section>
 
