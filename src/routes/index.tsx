@@ -186,20 +186,29 @@ function Home() {
             subtitle="The reviews you'd hope to read before letting someone on your roof."
             center
           />
-          <div className="mt-12 grid md:grid-cols-2 lg:grid-cols-3 gap-5">
-            {REVIEWS.map((r) => (
-              <figure key={r.name} className="rounded-2xl bg-white border border-border p-6 shadow-card">
-                <div className="flex gap-0.5 text-primary mb-3">
-                  {Array.from({ length: r.rating }).map((_, i) => <Star key={i} className="w-4 h-4 fill-current" />)}
-                </div>
-                <blockquote className="text-charcoal-soft leading-relaxed">"{r.text}"</blockquote>
-                <figcaption className="mt-4 text-sm">
-                  <p className="font-semibold text-charcoal">{r.name} <span className="text-muted-foreground font-normal">· {r.suburb}</span></p>
-                  <p className="text-muted-foreground">{r.service}</p>
-                </figcaption>
-              </figure>
-            ))}
-          </div>
+          <Carousel opts={{ align: "start", loop: true }} className="mt-12">
+            <CarouselContent className="-ml-5">
+              {REVIEWS.map((r) => (
+                <CarouselItem key={r.name} className="pl-5 basis-full md:basis-1/2 lg:basis-1/3">
+                  <figure className="h-full rounded-2xl bg-white border border-border p-6 shadow-card">
+                    <div className="flex gap-0.5 text-primary mb-3">
+                      {Array.from({ length: r.rating }).map((_, i) => <Star key={i} className="w-4 h-4 fill-current" />)}
+                    </div>
+                    <blockquote className="text-charcoal-soft leading-relaxed">"{r.text}"</blockquote>
+                    <figcaption className="mt-4 text-sm">
+                      <p className="font-semibold text-charcoal">{r.name} <span className="text-muted-foreground font-normal">· {r.suburb}</span></p>
+                      <p className="text-muted-foreground">{r.service}</p>
+                    </figcaption>
+                  </figure>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <div className="mt-8 flex items-center justify-center gap-3">
+              <CarouselPrevious className="static translate-y-0 h-11 w-11 bg-primary text-primary-foreground border-primary hover:bg-primary-hover hover:text-primary-foreground" />
+              <CarouselNext className="static translate-y-0 h-11 w-11 bg-primary text-primary-foreground border-primary hover:bg-primary-hover hover:text-primary-foreground" />
+            </div>
+          </Carousel>
+
         </div>
       </section>
 
