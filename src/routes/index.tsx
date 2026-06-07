@@ -151,6 +151,9 @@ function Home() {
             subtitle="Real reviews from real customers — verified on Google."
             center
           />
+          <div className="mt-4 flex justify-center">
+            <Link to="/reviews" className="inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:gap-2.5 transition-all">Read all reviews <ArrowRight className="w-4 h-4" /></Link>
+          </div>
 
           {/* Google rating badge */}
           <div className="mt-8 flex justify-center">
