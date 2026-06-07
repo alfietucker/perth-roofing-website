@@ -1,6 +1,6 @@
 import { createFileRoute, notFound, Link } from "@tanstack/react-router";
 import { CheckCircle2, ArrowRight, Phone } from "lucide-react";
-import { SERVICES, SITE, SUBURBS } from "@/lib/site";
+import { SERVICES, SITE, SUBURBS, type Service } from "@/lib/site";
 import { QuoteForm } from "@/components/QuoteForm";
 import { TrustBar } from "@/components/TrustBar";
 import heroImg from "@/assets/hero-roof.jpg";
@@ -50,7 +50,7 @@ export const Route = createFileRoute("/services/$slug")({
 });
 
 function ServicePage() {
-  const { service } = Route.useLoaderData();
+  const { service } = Route.useLoaderData() as { service: Service };
   return (
     <>
       <section className="relative">

@@ -1,6 +1,6 @@
 import { createFileRoute, notFound, Link } from "@tanstack/react-router";
 import { CheckCircle2, Phone, Star } from "lucide-react";
-import { SUBURBS, SERVICES, REVIEWS, SITE } from "@/lib/site";
+import { SUBURBS, SERVICES, REVIEWS, SITE, type Suburb } from "@/lib/site";
 import { QuoteForm } from "@/components/QuoteForm";
 import { TrustBar } from "@/components/TrustBar";
 import heroImg from "@/assets/hero-roof.jpg";
