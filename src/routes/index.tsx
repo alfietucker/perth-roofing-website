@@ -54,6 +54,30 @@ function Home() {
               </a>
             </div>
             <div className="mt-8"><TrustBar light /></div>
+
+            {/* Google Reviews badge */}
+            <a
+              href="https://www.google.com/search?q=apex+roofing+perth+reviews"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-4 inline-flex items-center gap-3 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 px-4 py-2 hover:bg-white/20 transition"
+            >
+              <span className="flex items-center justify-center w-7 h-7 rounded-full bg-white">
+                <svg viewBox="0 0 48 48" className="w-4 h-4" aria-hidden="true">
+                  <path fill="#EA4335" d="M24 9.5c3.5 0 6.6 1.2 9.1 3.6l6.8-6.8C35.7 2.4 30.2 0 24 0 14.6 0 6.5 5.4 2.6 13.3l7.9 6.1C12.4 13.1 17.7 9.5 24 9.5z"/>
+                  <path fill="#4285F4" d="M46.5 24.5c0-1.6-.1-3.2-.4-4.7H24v9h12.7c-.6 3-2.3 5.5-4.9 7.2l7.6 5.9c4.4-4.1 7.1-10.1 7.1-17.4z"/>
+                  <path fill="#FBBC05" d="M10.5 28.6c-.5-1.4-.8-2.9-.8-4.6s.3-3.2.8-4.6l-7.9-6.1C1 16.7 0 20.2 0 24s1 7.3 2.6 10.7l7.9-6.1z"/>
+                  <path fill="#34A853" d="M24 48c6.5 0 11.9-2.1 15.9-5.8l-7.6-5.9c-2.1 1.4-4.8 2.3-8.3 2.3-6.3 0-11.6-3.6-13.5-9.4l-7.9 6.1C6.5 42.6 14.6 48 24 48z"/>
+                </svg>
+              </span>
+              <div className="flex items-center gap-2">
+                <div className="flex gap-0.5 text-[#FBBC05]">
+                  {Array.from({ length: 5 }).map((_, i) => <Star key={i} className="w-3 h-3 fill-current" />)}
+                </div>
+                <span className="text-sm font-bold text-white leading-none">{SITE.rating}</span>
+                <span className="text-xs text-white/70 leading-none">· {SITE.reviewCount}+ Google reviews</span>
+              </div>
+            </a>
           </div>
 
           <div className="lg:col-span-5">
