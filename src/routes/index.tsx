@@ -31,9 +31,9 @@ function Home() {
       {/* Hero */}
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 -z-10">
-          <img src={heroImg} alt="Beautifully restored Colorbond metal roof on a modern Perth home" className="w-full h-full object-cover brightness-[0.55]" width={1920} height={1280} fetchPriority="high" />
-          <div className="absolute inset-0 bg-gradient-to-r from-charcoal/95 via-charcoal/85 to-charcoal/50" />
-          <div className="absolute inset-0 bg-charcoal/30" />
+          <img src={heroImg} alt="Beautifully restored Colorbond metal roof on a modern Perth home" className="w-full h-full object-cover brightness-[0.4]" width={1920} height={1280} fetchPriority="high" />
+          <div className="absolute inset-0 bg-gradient-to-r from-charcoal/95 via-charcoal/90 to-charcoal/70" />
+          <div className="absolute inset-0 bg-charcoal/40" />
         </div>
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 md:py-24 lg:py-32 grid lg:grid-cols-12 gap-10 items-center">
           <div className="lg:col-span-7 text-white">
