@@ -35,7 +35,7 @@ export const Route = createFileRoute("/areas/$slug")({
 });
 
 function SuburbPage() {
-  const { suburb } = Route.useLoaderData();
+  const { suburb } = Route.useLoaderData() as { suburb: Suburb };
   const localReviews = REVIEWS.filter((r) => r.suburb === suburb.name);
   return (
     <>
