@@ -59,13 +59,8 @@ function Home() {
               </a>
             </div>
 
-            <h1 className="mt-5 text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-bold leading-[1.02] tracking-tight">
-              Perth's Trusted{" "}
-              <span className="relative inline-block text-primary drop-shadow-[0_0_25px_rgba(234,88,12,0.55)]">
-                Roofing
-                <span className="absolute left-0 -bottom-1 h-1 w-full rounded-full bg-primary/70 blur-[1px]" />
-              </span>{" "}
-              Specialists.
+            <h1 className="mt-5 text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold leading-[1.1] tracking-tight">
+              Perth's Trusted <span className="text-primary">Roofing</span> Specialists.
             </h1>
             <p className="mt-5 text-lg md:text-xl text-white/85 max-w-2xl leading-relaxed">
               Roof Repairs, Restoration, Re-Roofing & Replacement across Perth — from Joondalup to Fremantle. Done right, on time, with a written workmanship warranty.
@@ -75,11 +70,11 @@ function Home() {
             </p>
 
             <div className="mt-7 flex flex-col items-start gap-3">
-              <div className="flex flex-wrap gap-3 w-full sm:w-auto">
-                <Link to="/contact" className="inline-flex items-center justify-center gap-2 rounded-md bg-primary px-7 py-4 text-base font-bold text-white shadow-cta hover:bg-primary-hover transition flex-1 sm:flex-none">
+              <div className="flex flex-nowrap gap-3 w-full sm:w-auto">
+                <Link to="/contact" className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md bg-primary px-6 py-3.5 text-base font-semibold text-primary-foreground shadow-cta hover:bg-primary-hover transition">
                   Get Free Quote <ArrowRight className="w-4 h-4" />
                 </Link>
-                <a href={SITE.phoneHref} className="inline-flex items-center justify-center gap-2 rounded-md border-2 border-white/70 bg-transparent text-white px-7 py-4 text-base font-semibold hover:bg-white hover:text-charcoal transition flex-1 sm:flex-none">
+                <a href={SITE.phoneHref} className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md border border-white/70 bg-transparent text-white px-6 py-3.5 text-base font-semibold hover:bg-white hover:text-charcoal transition">
                   <Phone className="w-4 h-4" /> {SITE.phone}
                 </a>
               </div>
@@ -87,6 +82,7 @@ function Home() {
                 Same-day response · No obligation
               </p>
             </div>
+
 
             <div className="mt-8"><TrustBar light /></div>
 
