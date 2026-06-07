@@ -186,7 +186,12 @@ function Home() {
             subtitle="The reviews you'd hope to read before letting someone on your roof."
             center
           />
-          <Carousel opts={{ align: "start", loop: true }} className="mt-12">
+          <Carousel opts={{ align: "start", loop: true }} className="mt-10">
+            <div className="mb-6 flex items-center justify-center gap-3">
+              <CarouselPrevious className="static translate-y-0 h-11 w-11 bg-primary text-primary-foreground border-primary hover:bg-primary-hover hover:text-primary-foreground" />
+              <span className="text-sm font-medium text-muted-foreground">Swipe or tap to read more</span>
+              <CarouselNext className="static translate-y-0 h-11 w-11 bg-primary text-primary-foreground border-primary hover:bg-primary-hover hover:text-primary-foreground" />
+            </div>
             <CarouselContent className="-ml-5">
               {REVIEWS.map((r) => (
                 <CarouselItem key={r.name} className="pl-5 basis-full md:basis-1/2 lg:basis-1/3">
@@ -203,11 +208,8 @@ function Home() {
                 </CarouselItem>
               ))}
             </CarouselContent>
-            <div className="mt-8 flex items-center justify-center gap-3">
-              <CarouselPrevious className="static translate-y-0 h-11 w-11 bg-primary text-primary-foreground border-primary hover:bg-primary-hover hover:text-primary-foreground" />
-              <CarouselNext className="static translate-y-0 h-11 w-11 bg-primary text-primary-foreground border-primary hover:bg-primary-hover hover:text-primary-foreground" />
-            </div>
           </Carousel>
+
 
         </div>
       </section>
