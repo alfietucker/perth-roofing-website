@@ -31,28 +31,63 @@ function Home() {
       {/* Hero */}
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 -z-10">
-          <img src={heroImg} alt="Beautifully restored Colorbond metal roof on a modern Perth home" className="w-full h-full object-cover" width={1920} height={1280} fetchPriority="high" />
-          <div className="absolute inset-0 bg-gradient-to-r from-charcoal/85 via-charcoal/65 to-charcoal/20" />
+          <img src={heroImg} alt="Beautifully restored Colorbond metal roof on a modern Perth home" className="w-full h-full object-cover brightness-[0.55]" width={1920} height={1280} fetchPriority="high" />
+          <div className="absolute inset-0 bg-gradient-to-r from-charcoal/95 via-charcoal/85 to-charcoal/50" />
+          <div className="absolute inset-0 bg-charcoal/30" />
         </div>
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 md:py-24 lg:py-32 grid lg:grid-cols-12 gap-10 items-center">
           <div className="lg:col-span-7 text-white">
-            <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 backdrop-blur text-xs font-semibold uppercase tracking-wider">
-              <span className="w-2 h-2 rounded-full bg-primary animate-pulse" /> Perth's #1 Local Roofing Team
-            </span>
-            <h1 className="mt-5 text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold leading-[1.05] tracking-tight">
-              Perth's Trusted <span className="text-primary">Roofing</span> Specialists.
-            </h1>
-            <p className="mt-5 text-lg md:text-xl text-white/85 max-w-2xl leading-relaxed">
-              Roof Repairs, Roof Restoration, Re-Roofing & Roof Replacement across Perth — done right, on time, with a written workmanship warranty.
-            </p>
-            <div className="mt-7 flex flex-wrap gap-3">
-              <Link to="/contact" className="inline-flex items-center gap-2 rounded-md bg-primary px-6 py-3.5 text-base font-semibold text-primary-foreground shadow-cta hover:bg-primary-hover transition">
-                Get Free Quote <ArrowRight className="w-4 h-4" />
-              </Link>
-              <a href={SITE.phoneHref} className="inline-flex items-center gap-2 rounded-md bg-white text-charcoal px-6 py-3.5 text-base font-semibold hover:bg-cream transition">
-                <Phone className="w-4 h-4" /> {SITE.phone}
+            {/* Top badge row: brand chip + Google score */}
+            <div className="flex flex-wrap items-center gap-2.5">
+              <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 backdrop-blur text-xs font-semibold uppercase tracking-wider">
+                <span className="w-2 h-2 rounded-full bg-primary animate-pulse" /> Perth's #1 Local Roofing Team
+              </span>
+              <a
+                href="https://www.google.com/search?q=apex+roofing+perth+reviews"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-full bg-white/10 backdrop-blur border border-white/20 px-3 py-1.5 hover:bg-white/20 transition"
+              >
+                <svg viewBox="0 0 48 48" className="w-3.5 h-3.5" aria-hidden="true">
+                  <path fill="#EA4335" d="M24 9.5c3.5 0 6.6 1.2 9.1 3.6l6.8-6.8C35.7 2.4 30.2 0 24 0 14.6 0 6.5 5.4 2.6 13.3l7.9 6.1C12.4 13.1 17.7 9.5 24 9.5z"/>
+                  <path fill="#4285F4" d="M46.5 24.5c0-1.6-.1-3.2-.4-4.7H24v9h12.7c-.6 3-2.3 5.5-4.9 7.2l7.6 5.9c4.4-4.1 7.1-10.1 7.1-17.4z"/>
+                  <path fill="#FBBC05" d="M10.5 28.6c-.5-1.4-.8-2.9-.8-4.6s.3-3.2.8-4.6l-7.9-6.1C1 16.7 0 20.2 0 24s1 7.3 2.6 10.7l7.9-6.1z"/>
+                  <path fill="#34A853" d="M24 48c6.5 0 11.9-2.1 15.9-5.8l-7.6-5.9c-2.1 1.4-4.8 2.3-8.3 2.3-6.3 0-11.6-3.6-13.5-9.4l-7.9 6.1C6.5 42.6 14.6 48 24 48z"/>
+                </svg>
+                <span className="text-xs font-bold text-white leading-none">{SITE.rating}★</span>
+                <span className="text-[11px] text-white/70 leading-none">Google</span>
               </a>
             </div>
+
+            <h1 className="mt-5 text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-bold leading-[1.02] tracking-tight">
+              Perth's Trusted{" "}
+              <span className="relative inline-block text-primary drop-shadow-[0_0_25px_rgba(234,88,12,0.55)]">
+                Roofing
+                <span className="absolute left-0 -bottom-1 h-1 w-full rounded-full bg-primary/70 blur-[1px]" />
+              </span>{" "}
+              Specialists.
+            </h1>
+            <p className="mt-5 text-lg md:text-xl text-white/85 max-w-2xl leading-relaxed">
+              Roof Repairs, Restoration, Re-Roofing & Replacement across Perth — from Joondalup to Fremantle. Done right, on time, with a written workmanship warranty.
+            </p>
+            <p className="mt-3 text-sm font-semibold text-white/90">
+              <span className="text-primary">★</span> Trusted by {SITE.reviewCount}+ Perth homeowners
+            </p>
+
+            <div className="mt-7 flex flex-col items-start gap-3">
+              <div className="flex flex-wrap gap-3 w-full sm:w-auto">
+                <Link to="/contact" className="inline-flex items-center justify-center gap-2 rounded-md bg-primary px-7 py-4 text-base font-bold text-white shadow-cta hover:bg-primary-hover transition flex-1 sm:flex-none">
+                  Get Free Quote <ArrowRight className="w-4 h-4" />
+                </Link>
+                <a href={SITE.phoneHref} className="inline-flex items-center justify-center gap-2 rounded-md border-2 border-white/70 bg-transparent text-white px-7 py-4 text-base font-semibold hover:bg-white hover:text-charcoal transition flex-1 sm:flex-none">
+                  <Phone className="w-4 h-4" /> {SITE.phone}
+                </a>
+              </div>
+              <p className="text-xs font-medium text-white/70">
+                Same-day response · No obligation
+              </p>
+            </div>
+
             <div className="mt-8"><TrustBar light /></div>
 
             {/* Google Reviews badge */}
@@ -60,22 +95,24 @@ function Home() {
               href="https://www.google.com/search?q=apex+roofing+perth+reviews"
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-4 inline-flex items-center gap-3 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 px-4 py-2 hover:bg-white/20 transition"
+              className="mt-5 inline-flex items-center gap-4 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 px-5 py-3 hover:bg-white/20 transition"
             >
-              <span className="flex items-center justify-center w-7 h-7 rounded-full bg-white">
-                <svg viewBox="0 0 48 48" className="w-4 h-4" aria-hidden="true">
+              <span className="flex items-center justify-center w-9 h-9 rounded-full bg-white">
+                <svg viewBox="0 0 48 48" className="w-5 h-5" aria-hidden="true">
                   <path fill="#EA4335" d="M24 9.5c3.5 0 6.6 1.2 9.1 3.6l6.8-6.8C35.7 2.4 30.2 0 24 0 14.6 0 6.5 5.4 2.6 13.3l7.9 6.1C12.4 13.1 17.7 9.5 24 9.5z"/>
                   <path fill="#4285F4" d="M46.5 24.5c0-1.6-.1-3.2-.4-4.7H24v9h12.7c-.6 3-2.3 5.5-4.9 7.2l7.6 5.9c4.4-4.1 7.1-10.1 7.1-17.4z"/>
                   <path fill="#FBBC05" d="M10.5 28.6c-.5-1.4-.8-2.9-.8-4.6s.3-3.2.8-4.6l-7.9-6.1C1 16.7 0 20.2 0 24s1 7.3 2.6 10.7l7.9-6.1z"/>
                   <path fill="#34A853" d="M24 48c6.5 0 11.9-2.1 15.9-5.8l-7.6-5.9c-2.1 1.4-4.8 2.3-8.3 2.3-6.3 0-11.6-3.6-13.5-9.4l-7.9 6.1C6.5 42.6 14.6 48 24 48z"/>
                 </svg>
               </span>
-              <div className="flex items-center gap-2">
-                <div className="flex gap-0.5 text-[#FBBC05]">
-                  {Array.from({ length: 5 }).map((_, i) => <Star key={i} className="w-3 h-3 fill-current" />)}
+              <div className="flex items-center gap-3">
+                <span className="text-2xl font-extrabold text-white leading-none">{SITE.rating}</span>
+                <div className="flex flex-col gap-1">
+                  <div className="flex gap-0.5 text-[#FBBC05]">
+                    {Array.from({ length: 5 }).map((_, i) => <Star key={i} className="w-3.5 h-3.5 fill-current" />)}
+                  </div>
+                  <span className="text-[11px] text-white/80 leading-none">{SITE.reviewCount}+ Google reviews</span>
                 </div>
-                <span className="text-sm font-bold text-white leading-none">{SITE.rating}</span>
-                <span className="text-xs text-white/70 leading-none">· {SITE.reviewCount}+ Google reviews</span>
               </div>
             </a>
           </div>
