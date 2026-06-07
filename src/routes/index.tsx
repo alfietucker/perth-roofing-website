@@ -199,8 +199,65 @@ function Home() {
         </div>
       </section>
 
+      {/* Benefits / Why Choose Us */}
+      <section className="py-20 md:py-28 bg-cream">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <SectionHeading
+            eyebrow="Why Choose Us"
+            title="Perth homeowners pick Apex for good reason"
+            subtitle="Local team, premium materials, fixed pricing and a written warranty on every job."
+            center
+          />
+          <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            {[
+              { icon: ShieldCheck, title: "Licensed & Insured", text: "Fully licensed roofing contractors with $20M public liability cover." },
+              { icon: Award, title: "15+ Years Experience", text: "Over 1,800 Perth roofs completed across tile, metal and commercial." },
+              { icon: Clock, title: "On-Time, Every Time", text: "Same-week response and projects finished on the day we promise." },
+              { icon: Wrench, title: "Workmanship Warranty", text: "Every job backed by a written workmanship warranty you can hold us to." },
+            ].map((b) => (
+              <div key={b.title} className="rounded-2xl bg-white border border-border p-6 shadow-card">
+                <div className="w-11 h-11 rounded-xl bg-primary/10 text-primary flex items-center justify-center">
+                  <b.icon className="w-5 h-5" />
+                </div>
+                <h3 className="mt-4 text-lg font-bold text-charcoal">{b.title}</h3>
+                <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{b.text}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Meet The Team */}
+      <section className="py-20 md:py-28">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <SectionHeading
+            eyebrow="Meet The Team"
+            title="The Perth roofers behind every job"
+            subtitle="Locally owned, family run — the same crew that quotes your job is the one on your roof."
+            center
+          />
+          <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {[
+              { name: "Jake Mitchell", role: "Director & Lead Roofer", initials: "JM" },
+              { name: "Sam O'Brien", role: "Project Manager", initials: "SO" },
+              { name: "Liam Walters", role: "Senior Tile Specialist", initials: "LW" },
+              { name: "Aaron Chen", role: "Metal Roofing Lead", initials: "AC" },
+            ].map((m) => (
+              <div key={m.name} className="rounded-2xl bg-white border border-border p-6 text-center shadow-card">
+                <div className="mx-auto w-20 h-20 rounded-full bg-gradient-to-br from-primary to-primary-hover text-primary-foreground flex items-center justify-center text-2xl font-bold">
+                  {m.initials}
+                </div>
+                <h3 className="mt-4 text-base font-bold text-charcoal">{m.name}</h3>
+                <p className="mt-1 text-sm text-muted-foreground">{m.role}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Reviews */}
       <section className="relative py-24 bg-gradient-to-b from-cream via-cream to-white overflow-hidden">
+
         <div className="absolute inset-0 -z-10 opacity-[0.04]" style={{ backgroundImage: "radial-gradient(circle at 1px 1px, hsl(var(--charcoal)) 1px, transparent 0)", backgroundSize: "24px 24px" }} />
           <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <SectionHeading
