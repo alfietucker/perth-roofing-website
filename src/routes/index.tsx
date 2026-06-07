@@ -178,27 +178,51 @@ function Home() {
         </div>
       </section>
 
-      <section className="py-20 md:py-28">
+      {/* Projects Gallery */}
+      <section className="py-20 md:py-28 bg-charcoal">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="flex items-end justify-between flex-wrap gap-4">
-            <SectionHeading eyebrow="Recent Work" title="Projects across Perth" />
+          <div className="flex items-end justify-between flex-wrap gap-4 mb-12">
+            <div>
+              <p className="text-xs font-bold uppercase tracking-[0.2em] text-primary mb-2">Recent Work</p>
+              <h2 className="text-3xl md:text-4xl font-bold text-white">Projects across Perth</h2>
+            </div>
             <Link to="/projects" className="inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:gap-2.5 transition-all">View all projects <ArrowRight className="w-4 h-4" /></Link>
           </div>
-          <div className="mt-12 grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {PROJECTS.slice(0, 6).map((p, i) => (
-              <article key={p.title} className="rounded-2xl bg-white border border-border overflow-hidden shadow-card">
-                <div className="aspect-[16/10] bg-secondary">
-                  <img src={[tileImg, metalImg, commercialImg, heroImg, tileImg, metalImg][i]} alt={p.title} loading="lazy" className="w-full h-full object-cover" />
+
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 auto-rows-[180px] md:auto-rows-[220px]">
+            {[
+              { img: projectMetal, title: "Colorbond Re-Roof", location: "Hillarys", span: "col-span-2 row-span-2" },
+              { img: projectRestoration, title: "Tile Restoration", location: "Morley", span: "col-span-1 row-span-1" },
+              { img: projectCommercial, title: "Commercial Warehouse", location: "Osborne Park", span: "col-span-1 row-span-1" },
+              { img: heroImg, title: "Storm Emergency", location: "Baldivis", span: "col-span-1 row-span-1" },
+              { img: tileImg, title: "Heritage Tile Repair", location: "Fremantle", span: "col-span-1 row-span-1" },
+              { img: metalImg, title: "Gutter Replacement", location: "Canning Vale", span: "col-span-1 row-span-1" },
+              { img: projectAerial, title: "Full Re-Roof", location: "Joondalup", span: "col-span-2 row-span-1" },
+              { img: projectDetail, title: "Ridge Capping", location: "Wanneroo", span: "col-span-1 row-span-1" },
+            ].map((p) => (
+              <div key={p.title} className={`group relative overflow-hidden rounded-2xl ${p.span}`}>
+                <img
+                  src={p.img}
+                  alt={p.title}
+                  loading="lazy"
+                  className="w-full h-full object-cover transition duration-700 group-hover:scale-110"
+                  width={1024}
+                  height={768}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-60 group-hover:opacity-100 transition duration-500" />
+                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-500">
+                  <div className="w-12 h-12 rounded-full bg-white/20 backdrop-blur flex items-center justify-center text-white">
+                    <Eye className="w-5 h-5" />
+                  </div>
                 </div>
-                <div className="p-5">
-                  <p className="text-xs font-semibold uppercase tracking-wider text-primary">{p.location}</p>
-                  <h3 className="mt-1 text-lg font-bold text-charcoal">{p.title}</h3>
-                  <dl className="mt-3 space-y-1.5 text-sm">
-                    <div className="flex gap-2"><dt className="font-semibold text-charcoal min-w-16">Problem:</dt><dd className="text-muted-foreground">{p.problem}</dd></div>
-                    <div className="flex gap-2"><dt className="font-semibold text-charcoal min-w-16">Outcome:</dt><dd className="text-muted-foreground">{p.outcome}</dd></div>
-                  </dl>
+                <div className="absolute bottom-0 left-0 right-0 p-4 md:p-5">
+                  <div className="flex items-center gap-1.5 text-primary mb-1">
+                    <MapPin className="w-3 h-3" />
+                    <span className="text-[11px] font-bold uppercase tracking-wider">{p.location}</span>
+                  </div>
+                  <p className="text-white font-bold text-sm md:text-base">{p.title}</p>
                 </div>
-              </article>
+              </div>
             ))}
           </div>
         </div>
