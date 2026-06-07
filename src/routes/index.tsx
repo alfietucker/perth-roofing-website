@@ -59,7 +59,7 @@ function Home() {
               </a>
             </div>
 
-            <h1 className="mt-5 text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold leading-[1.1] tracking-tight">
+            <h1 className="mt-5 text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold leading-[1.1] tracking-tight text-white drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)]">
               Perth's Trusted <span className="text-primary">Roofing</span> Specialists.
             </h1>
             <p className="mt-5 text-lg md:text-xl text-white/85 max-w-2xl leading-relaxed">
