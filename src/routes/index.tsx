@@ -1,13 +1,18 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, Phone, ShieldCheck, Clock, Award, Wrench, CheckCircle2, Star } from "lucide-react";
+import { ArrowRight, Phone, ShieldCheck, Clock, Award, Wrench, CheckCircle2, Star, MapPin, Eye } from "lucide-react";
 import heroImg from "@/assets/hero-roof.jpg";
 import tileImg from "@/assets/tile-roof.jpg";
 import metalImg from "@/assets/metal-roof.jpg";
 import commercialImg from "@/assets/commercial-roof.jpg";
+import projectRestoration from "@/assets/project-restoration.jpg";
+import projectMetal from "@/assets/project-metal.jpg";
+import projectDetail from "@/assets/project-detail.jpg";
+import projectAerial from "@/assets/project-aerial.jpg";
+import projectCommercial from "@/assets/project-commercial.jpg";
 import { QuoteForm } from "@/components/QuoteForm";
 import { TrustBar } from "@/components/TrustBar";
 import { SectionHeading } from "@/components/SectionHeading";
-import { SITE, SERVICES, SUBURBS, REVIEWS, PROJECTS } from "@/lib/site";
+import { SITE, SERVICES, SUBURBS, REVIEWS } from "@/lib/site";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 
 export const Route = createFileRoute("/")({
