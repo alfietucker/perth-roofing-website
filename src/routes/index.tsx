@@ -179,13 +179,10 @@ function Home() {
       </section>
 
       {/* Projects Gallery */}
-      <section className="py-20 md:py-28 bg-charcoal">
+      <section className="py-20 md:py-28 bg-cream">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex items-end justify-between flex-wrap gap-4 mb-12">
-            <div>
-              <p className="text-xs font-bold uppercase tracking-[0.2em] text-primary mb-2">Recent Work</p>
-              <h2 className="text-3xl md:text-4xl font-bold text-white">Projects across Perth</h2>
-            </div>
+            <SectionHeading eyebrow="Recent Work" title="Projects across Perth" />
             <Link to="/projects" className="inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:gap-2.5 transition-all">View all projects <ArrowRight className="w-4 h-4" /></Link>
           </div>
 
@@ -200,27 +197,24 @@ function Home() {
               { img: projectAerial, title: "Full Re-Roof", location: "Joondalup", span: "col-span-2 row-span-1" },
               { img: projectDetail, title: "Ridge Capping", location: "Wanneroo", span: "col-span-1 row-span-1" },
             ].map((p) => (
-              <div key={p.title} className={`group relative overflow-hidden rounded-2xl ${p.span}`}>
-                <img
-                  src={p.img}
-                  alt={p.title}
-                  loading="lazy"
-                  className="w-full h-full object-cover transition duration-700 group-hover:scale-110"
-                  width={1024}
-                  height={768}
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-60 group-hover:opacity-100 transition duration-500" />
-                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-500">
-                  <div className="w-12 h-12 rounded-full bg-white/20 backdrop-blur flex items-center justify-center text-white">
-                    <Eye className="w-5 h-5" />
-                  </div>
+              <div key={p.title} className={`group relative overflow-hidden rounded-xl border border-border bg-white shadow-card ${p.span}`}>
+                <div className="absolute inset-0 overflow-hidden">
+                  <img
+                    src={p.img}
+                    alt={p.title}
+                    loading="lazy"
+                    className="w-full h-full object-cover transition duration-700 group-hover:scale-105"
+                    width={1024}
+                    height={768}
+                  />
                 </div>
+                <div className="absolute inset-0 bg-gradient-to-t from-charcoal/70 via-charcoal/10 to-transparent opacity-60 group-hover:opacity-80 transition duration-500" />
                 <div className="absolute bottom-0 left-0 right-0 p-4 md:p-5">
                   <div className="flex items-center gap-1.5 text-primary mb-1">
                     <MapPin className="w-3 h-3" />
                     <span className="text-[11px] font-bold uppercase tracking-wider">{p.location}</span>
                   </div>
-                  <p className="text-white font-bold text-sm md:text-base">{p.title}</p>
+                  <p className="text-white font-bold text-sm md:text-base drop-shadow">{p.title}</p>
                 </div>
               </div>
             ))}
