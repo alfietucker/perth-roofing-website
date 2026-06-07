@@ -217,38 +217,41 @@ function Home() {
             </a>
           </div>
 
-          <Carousel opts={{ align: "start", loop: true }} className="mt-12">
-            <CarouselContent className="-ml-5">
+          <Carousel opts={{ align: "start", loop: true }} className="mt-12 max-w-2xl mx-auto">
+            <CarouselContent>
               {REVIEWS.map((r) => (
-                <CarouselItem key={r.name} className="pl-5 basis-full md:basis-1/2 lg:basis-1/3">
-                  <figure className="relative h-full rounded-2xl bg-white border border-border p-7 shadow-card hover:shadow-cta hover:-translate-y-1 transition-all duration-300">
-                    {/* Decorative quote mark */}
-                    <span className="absolute top-4 right-5 text-7xl leading-none font-serif text-primary/10 select-none" aria-hidden="true">"</span>
-
-                    {/* Google badge */}
-                    <div className="flex items-center justify-between mb-4">
-                      <div className="flex gap-0.5 text-[#FBBC05]">
-                        {Array.from({ length: r.rating }).map((_, i) => <Star key={i} className="w-4 h-4 fill-current" />)}
-                      </div>
-                      <svg viewBox="0 0 48 48" className="w-4 h-4 opacity-80" aria-label="Google review">
-                        <path fill="#EA4335" d="M24 9.5c3.5 0 6.6 1.2 9.1 3.6l6.8-6.8C35.7 2.4 30.2 0 24 0 14.6 0 6.5 5.4 2.6 13.3l7.9 6.1C12.4 13.1 17.7 9.5 24 9.5z"/>
-                        <path fill="#4285F4" d="M46.5 24.5c0-1.6-.1-3.2-.4-4.7H24v9h12.7c-.6 3-2.3 5.5-4.9 7.2l7.6 5.9c4.4-4.1 7.1-10.1 7.1-17.4z"/>
-                        <path fill="#FBBC05" d="M10.5 28.6c-.5-1.4-.8-2.9-.8-4.6s.3-3.2.8-4.6l-7.9-6.1C1 16.7 0 20.2 0 24s1 7.3 2.6 10.7l7.9-6.1z"/>
-                        <path fill="#34A853" d="M24 48c6.5 0 11.9-2.1 15.9-5.8l-7.6-5.9c-2.1 1.4-4.8 2.3-8.3 2.3-6.3 0-11.6-3.6-13.5-9.4l-7.9 6.1C6.5 42.6 14.6 48 24 48z"/>
-                      </svg>
-                    </div>
-
-                    <blockquote className="relative text-charcoal-soft leading-relaxed">"{r.text}"</blockquote>
-
-                    <figcaption className="mt-6 pt-5 border-t border-border flex items-center gap-3">
-                      <div className="flex-shrink-0 w-11 h-11 rounded-full bg-gradient-to-br from-primary to-primary-hover text-primary-foreground flex items-center justify-center font-bold text-sm">
+                <CarouselItem key={r.name} className="basis-full">
+                  <figure className="relative rounded-2xl bg-white border border-border p-7 sm:p-9 shadow-card">
+                    {/* Header: avatar + name + Google logo */}
+                    <div className="flex items-start gap-4">
+                      <div className="flex-shrink-0 w-12 h-12 rounded-full bg-gradient-to-br from-primary to-primary-hover text-primary-foreground flex items-center justify-center font-bold">
                         {r.name.split(" ").map((n) => n[0]).slice(0, 2).join("")}
                       </div>
-                      <div className="text-sm">
-                        <p className="font-semibold text-charcoal leading-tight">{r.name}</p>
-                        <p className="text-muted-foreground text-xs mt-0.5">{r.suburb} · {r.service}</p>
+                      <div className="flex-1 min-w-0">
+                        <div className="flex items-center justify-between gap-2">
+                          <p className="font-semibold text-charcoal truncate">{r.name}</p>
+                          <svg viewBox="0 0 48 48" className="w-5 h-5 flex-shrink-0" aria-label="Google review">
+                            <path fill="#EA4335" d="M24 9.5c3.5 0 6.6 1.2 9.1 3.6l6.8-6.8C35.7 2.4 30.2 0 24 0 14.6 0 6.5 5.4 2.6 13.3l7.9 6.1C12.4 13.1 17.7 9.5 24 9.5z"/>
+                            <path fill="#4285F4" d="M46.5 24.5c0-1.6-.1-3.2-.4-4.7H24v9h12.7c-.6 3-2.3 5.5-4.9 7.2l7.6 5.9c4.4-4.1 7.1-10.1 7.1-17.4z"/>
+                            <path fill="#FBBC05" d="M10.5 28.6c-.5-1.4-.8-2.9-.8-4.6s.3-3.2.8-4.6l-7.9-6.1C1 16.7 0 20.2 0 24s1 7.3 2.6 10.7l7.9-6.1z"/>
+                            <path fill="#34A853" d="M24 48c6.5 0 11.9-2.1 15.9-5.8l-7.6-5.9c-2.1 1.4-4.8 2.3-8.3 2.3-6.3 0-11.6-3.6-13.5-9.4l-7.9 6.1C6.5 42.6 14.6 48 24 48z"/>
+                          </svg>
+                        </div>
+                        <p className="text-xs text-muted-foreground mt-0.5">{r.suburb} · Local Guide</p>
+                        <div className="mt-2 flex items-center gap-2">
+                          <div className="flex gap-0.5 text-[#FBBC05]">
+                            {Array.from({ length: r.rating }).map((_, i) => <Star key={i} className="w-4 h-4 fill-current" />)}
+                          </div>
+                          <span className="text-xs text-muted-foreground">· a week ago</span>
+                        </div>
                       </div>
-                    </figcaption>
+                    </div>
+
+                    <blockquote className="mt-5 text-charcoal-soft leading-relaxed text-[15px]">{r.text}</blockquote>
+
+                    <p className="mt-5 pt-4 border-t border-border text-xs text-muted-foreground">
+                      Service: <span className="font-medium text-charcoal">{r.service}</span>
+                    </p>
                   </figure>
                 </CarouselItem>
               ))}
