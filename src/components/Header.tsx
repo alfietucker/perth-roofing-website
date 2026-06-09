@@ -2,6 +2,9 @@ import { Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { Phone, Menu, X } from "lucide-react";
 import { SITE } from "@/lib/site";
+import logo from "@/assets/apex-logo.png";
+
+
 
 const NAV = [
   { to: "/", label: "Home" },
@@ -17,8 +20,8 @@ export function Header() {
   return (
     <header className="sticky top-0 z-50 bg-background/95 backdrop-blur border-b border-border">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 h-16 lg:h-20 flex items-center justify-between gap-4">
-        <Link to="/" className="flex items-center gap-2 font-display font-bold text-lg lg:text-xl text-charcoal">
-          <span className="grid place-items-center w-9 h-9 rounded-md bg-primary text-primary-foreground">A</span>
+        <Link to="/" className="flex items-center gap-2.5 font-display font-bold text-lg lg:text-xl text-charcoal">
+          <img src={logo} alt="Apex Roofing" width={36} height={36} className="w-9 h-9 object-contain" />
           <span>Apex Roofing<span className="text-primary">.</span></span>
         </Link>
 
